@@ -14,9 +14,9 @@ class Table extends Model
 
 /*
 
-With Laravel use a model per table (table, menu, etc.), the 
+With Laravel use a model per table, the 
 model is unique for CRUD operations, you do not have to create 
 separate files, Create.php, Update.php, so that is not with Controller 
-(the CRUD logic) and Form Request for the validation of each operation
+ and Form Request for the validation of each operation
 
 */

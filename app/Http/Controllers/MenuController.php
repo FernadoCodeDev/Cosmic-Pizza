@@ -4,15 +4,20 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Menu;
+use Inertia\Inertia; 
+use Illuminate\Support\Facades\Redirect;
 
 class MenuController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+   
     public function index()
     {
-        //
+        $menu = Menu::all();
+
+           return Inertia::render('Home', [
+            'menu' => $menu,
+        ]);
     }
 
     /**
