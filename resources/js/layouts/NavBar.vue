@@ -10,32 +10,36 @@ const items = [
     { name: "User", SVG: UserSVG },
 ]
 
-const activeIndex = ref(1)
+const activeIndex = ref(1) 
 </script>
 
 <template>
     <nav class="w-full sticky top-0 bg-slate-900 shadow-md">
-        <div class="flex items-center justify-center gap-2 p-2 bg-white h-auto relative">
+        <div class="flex items-center justify-center gap-10 p-4 bg-white relative">
 
-            <div v-for="(item, index) in items" :key="item.name" @click="activeIndex = index"
-                class="relative flex flex-col items-center cursor-pointer">
+            <div v-for="(item, index) in items" :key="item.name"
+                class="relative flex flex-col items-center cursor-pointer" @click="activeIndex = index">
 
                 <div :class="[
-                    'flex items-center justify-center w-16 h-16 rounded-full text-black transition-all duration-300 relative z-10',
-                    activeIndex === index ? 'bg-cyan-500 text-white border-4 border-slate-950 -mt-[80%] shadow-lg' : 'bg-transparent'
+                    'flex items-center justify-center w-16 h-16 rounded-full transition-all duration-300 relative z-10',
+                    activeIndex === index
+                        ? 'bg-cyan-500 text-white -mt-24 shadow-lg'
+                        : 'bg-transparent text-slate-800'
                 ]">
-
-                    <component :is="item.SVG" class="w-6 h-6" />
+                    <component :is="item.SVG" class="w-10 h-10" />
                 </div>
 
-                <div v-if="activeIndex === index" class="absolute -top-2 left-1/2 -translate-x-1/2 z-0">
-                    <svg width="60" height="20" viewBox="0 0 60 20" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M0,20 Q30,-20 60,20 Z" fill="white" />
+                <!-- Arc -->
+                <div v-if="activeIndex === index"
+                    class="absolute -top-[5rem] left-1/2 -translate-x-1/2 rotate-180 z-00 text-white dark:text-slate-950">
+                    <svg width="100" height="80" viewBox="0 0 100 40" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0,50 A50,50 0 0 1 100,50 Z" fill="currentcolor" />
                     </svg>
                 </div>
 
-                <span class="text-sm mt-1">{{ item.name }}</span>
+                <span class="text-xs mt-4">{{ item.name }}</span>
             </div>
+
         </div>
     </nav>
 </template>
