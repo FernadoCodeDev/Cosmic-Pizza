@@ -7,10 +7,10 @@ import NavBar from "../layouts/NavBar.vue"
 </script>
 
 <template>
-    <div class="flex flex-col min-h-screen bg-slate-950">
+    <div class="flex flex-col min-h-screen bg-slate-100  ">
         <Header />
         <Main />
-        <Footer />
-        <NavBar />
+        <Footer class="md:block hidden"/>
+        <NavBar class="block md:hidden"/>
     </div>
 </template>
