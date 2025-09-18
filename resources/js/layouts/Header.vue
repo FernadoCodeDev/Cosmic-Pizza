@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import DarkMode from '@/components/ui/DarkMode.vue';
 import Cart from '@/assets/svg/Cart.vue';
 import CosmicPizzaLogo from "../assets/img/CosmicPizzaLogo.webp"
 
@@ -8,19 +7,14 @@ import CosmicPizzaLogo from "../assets/img/CosmicPizzaLogo.webp"
 <template>
     <div class=" w-full h-auto">
 
-        <div class="grid grid-cols-2 bg-beige-200 p-4">
+        <div class="flex flex-row justify-between bg-beige-200 p-4">
 
-            <div class="">
-                <DarkMode />
-            </div>
+            <img :src="CosmicPizzaLogo" alt="CosmicPizzaLogo"
+                class="w-auto h-12 col-span-2" />
 
-            <div class="w-12 h-12 object-contain ms-auto">
+            <div class="w-16 h-16 object-contain">
                 <cart />
             </div>
-
-            <img :src="CosmicPizzaLogo" 
-            alt="CosmicPizzaLogo" 
-            class="w-40 h-auto cursor-pointer col-span-2 m-auto drop-shadow-xl/50" />
 
         </div>
 
