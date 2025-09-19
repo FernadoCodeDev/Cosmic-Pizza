@@ -1,25 +1,15 @@
 <script>
 import { ref, onMounted, onBeforeUnmount } from 'vue';
 import MobileMenuIcon from '../../assets/img/MobileMenu.webp';
+import HomeSVG from "../../assets/svg/Home.vue"
+import MenuSVG from "../../assets/svg/Menu.vue"
+import UserSVG from "../../assets/svg/User.vue"
 
 export default {
-  props: {
-    textColor: {
-      type: String,
-      default: 'text-gray-500',
-    },
-    hoverColor: {
-      type: String,
-      default: 'hover:text-gray-700',
-    },
-    bgColor: {
-      type: String,
-      default: 'bg-transparent',
-    },
-    invertColor: {
-      type: String,
-      default: 'invert',
-    },
+  components: {
+    HomeSVG,
+    MenuSVG,
+    UserSVG
   },
   setup() {
     const menuOpen = ref(false);
@@ -54,37 +44,41 @@ export default {
 
 <template>
   <div class="p-2">
-    <img
-      v-if="isMobile"
-      :src="mobileMenuIcon"
-      alt="Mobile Menu"
-      :class="`w-20 h-auto cursor-pointer ${invertColor}`"
-      @click="toggleMenu"
-    />
+    <img v-if="isMobile" :src="mobileMenuIcon" alt="Mobile Menu" :class="`w-20 h-auto cursor-pointer ${invertColor}`"
+      @click="toggleMenu" />
 
-    <nav
-      :class="`w-full text-center transition-all duration-500 ease-in-out overflow-hidden 
+    <div :class="`w-full text-center transition-all duration-500 ease-in-out overflow-hidden 
         ${menuOpen ? 'max-h-[200px] opacity-100' : 'max-h-0 opacity-0'} 
-        ${isMobile ? 'flex flex-col' : 'flex flex-row max-h-none opacity-100'}`"
-    >
-      <a
-        href="/"
-        :class="`p-2 text-base md:text-xl font-bold ${bgColor} ${textColor} ${hoverColor}`"
-      >
-        Home
-      </a>
-      <a
-        href="/"
-        :class="`p-2 text-base md:text-xl font-bold ${bgColor} ${textColor} ${hoverColor}`"
-      >
-        Contact
-      </a>
-      <a
-        href="/"
-        :class="`p-2 text-base md:text-xl font-bold ${bgColor} ${textColor} ${hoverColor}`"
-      >
-        Us
-      </a>
-    </nav>
+        ${isMobile ? 'flex flex-col' : 'flex flex-row max-h-none opacity-100'}`">
+      <div class="flex flex-row items-center justify-center gap-2 p-4">
+        <div class="w-4 h-4 object-contain">
+          <HomeSVG />
+        </div>
+
+        <a href="/" class="p-2 text-base md:text-lg">
+          Home
+        </a>
+      </div>
+
+      <div class="flex flex-row items-center justify-center gap-2 p-4">
+        <div class="w-4 h-4 object-contain">
+          <MenuSVG />
+        </div>
+
+        <a href="/" class="p-2 text-base md:text-lg">
+          Menu
+        </a>
+      </div>
+
+      <div class="flex flex-row items-center justify-center gap-2 p-4">
+        <div class="w-4 h-4 object-contain">
+          <UserSVG />
+        </div>
+
+        <a href="/" class="p-2 text-base md:text-lg">
+          User
+        </a>
+      </div>
+    </div>
   </div>
 </template>

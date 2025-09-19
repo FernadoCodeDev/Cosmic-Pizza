@@ -7,20 +7,28 @@ import MobileNav from '@/components/ui/MobileNav.vue';
 </script>
 
 <template>
-    <div class="flex flex-col w-full h-auto bg-beige-200">
+    <div class="flex flex-col w-full h-auto p-2 bg-beige-200">
 
-        <div class="relative flex flex-row justify-between  p-4">
+        <div class="grid grid-cols-3 w-full text-slate-950">
 
             <div class="md:hidden flex">
-                <MobileNav />
+                <MobileNav 
+                 textColor="text-beige-800 transition-all duration-700 ease-out"
+                    hoverColor="hover:text-blue-500" 
+                    bgColor="bg-transparent"
+                />
             </div>
 
-            <img :src="CosmicPizzaLogo" alt="CosmicPizzaLogo" class="w-auto h-12 col-span-2" />
+            <img :src="CosmicPizzaLogo" alt="CosmicPizzaLogo" class="w-auto h-20 object-contain mx-auto md:mx-0" />
 
-            <div class="flex flex-row justify-between gap-4">
+            <div class="flex flex-row justify-center items-center gap-4 ms-auto md:col-span-2">
 
                 <div class="hidden md:block">
-                    <Nav />
+                    <Nav 
+                    textColor="text-beige-800 transition-all duration-700 ease-out"
+                    hoverColor="hover:text-blue-500" 
+                    bgColor="bg-transparent"
+                   />
                 </div>
 
                 <div class="w-16 h-16 object-contain">
@@ -29,8 +37,5 @@ import MobileNav from '@/components/ui/MobileNav.vue';
             </div>
 
         </div>
-
-
-
     </div>
 </template>
